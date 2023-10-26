@@ -1,0 +1,23 @@
+<%= if is_nil(@current_user) do %>
+<center><p class="text-[2rem] mt-4 font-semibold leading-10 tracking-tighter text-zinc-900">
+Access denied
+</p></center>
+<% else %>
+<%= if Enum.member?(@current_user.role, "viewer") do %>
+<center><p class="text-[2rem] mt-4 font-semibold leading-10 tracking-tighter text-zinc-900">
+Access denied
+</p></center>
+<% else %>
+<%= if Enum.member?(@current_user.role, "admin") do %>
+<.header>
+  Edit Product <%= @product.id %>
+  <:subtitle>Use this form to manage product records in your database.</:subtitle>
+</.header>
+
+<.product_form changeset={@changeset} action={~p"/products/#{@product}"} />
+
+<.back navigate={~p"/products"}>Back to products</.back>
+<% end %>
+<% end %>
+<% end %>
+
