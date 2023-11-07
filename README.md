@@ -2,11 +2,11 @@
 
 To start your Phoenix server:
 
+  * Run `sudo docker volume create hello-postgres` to create a docker volume. 
+  * Run `sudo docker container run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -v hello-postgres:/var/lib/postgresql/data --rm postgres:11-alpine` launch a container running the Postgres docker image, v. 11-alpine.
   * Run `mix deps.get` to install and setup dependencies
   * Run `npm install esbuild --save-dev` to install esbuild via Node.JS inside the ./assets directory
   * Run `npm install ../deps/phoenix ../deps/phoenix_html ../deps/phoenix_live_view --save` inside the ./assets directory
-  * Run `sudo docker volume create hello-postgres` to create a docker volume. 
-  * Run `sudo docker container run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -v hello-postgres:/var/lib/postgresql/data --rm postgres:11-alpine` launch a container running the Postgres docker image, v. 11-alpine.
   * Run `mix ecto.setup`
   * Run `mix test`
   * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
