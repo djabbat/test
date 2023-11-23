@@ -1,9 +1,7 @@
 # Hello
 
 To start your Phoenix server:
-
-  * Run `sudo docker volume create hello-postgres` to create a docker volume. 
-  * Run `sudo docker container run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -v hello-postgres:/var/lib/postgresql/data --rm postgres:11-alpine` launch a container running the Postgres docker image, v. 11-alpine.
+  * Run to create postgres container `docker run --name postgres-container -e POSTGRES_PASSWORD=postgres -d -p 5432:5432 -v /home/jaba/Documents/hello/db_data:/var/lib/postgresql/data postgres:latest`. Check container if runs `docker ps`, check container if stoped `docker ps -a`, start stoped container `docker start postgres-container`.
   * Run `mix deps.get` to install and setup dependencies
   * Run `npm install esbuild --save-dev` to install esbuild via Node.JS inside the ./assets directory
   * Run `npm install ../deps/phoenix ../deps/phoenix_html ../deps/phoenix_live_view --save` inside the ./assets directory
